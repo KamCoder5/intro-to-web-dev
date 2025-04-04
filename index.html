@@ -124,11 +124,6 @@
     }
 
     canvas#matrix {
-      position: fixed;
-      top: 0;
-      left: 0;
-      z-index: -2;
-      pointer-events: none;
       width: 100%;
       height: 100%;
       display: block;
@@ -164,7 +159,7 @@
     body.light-mode ul,
     body.light-mode ol,
     body.light-mode p,
-    body.light-mode h2,
+    body.light-mode h2,s
     body.light-mode h3 {
       background: #fff8ffcc;
       color: #222;
@@ -192,7 +187,7 @@
   </style>
 </head>
 <body>
-  <canvas id="matrix" class="matrix-background"></canvas>
+  <canvas class="matrix-background" id="matrix"></canvas>
   <button class="toggle-mode" onclick="toggleMode()">Toggle Mode</button>
 
   <h1>💻 Build & Customise Your Own Webpage</h1>
@@ -230,10 +225,19 @@
     <li>Go to <a href="https://replit.com" target="_blank">replit.com</a> and sign in</li>
     <li>Click <strong>“+ Create Repl”</strong></li>
     <li>Choose <strong style="color: red">HTML, CSS, JS (Auto Refresh)</strong></li>
-    <li>Name your project (e.g. <code>MyWebpage</code>)</li>
+    <li>Name your project e.g. <code>MyWebpage</code></li>
     <li>Close the AI Assistant tab</li>
-    <li>Paste your code into <code>index.html</code></li>
+    <li>
+      Open this template:  
+      <a href="school-profile-template.html" target="_blank">school-profile-template.html</a>
+    </li>
+    <li>
+      Right-click and select <strong>“View Page Source”</strong>  
+      (or press <kbd>Ctrl+U</kbd> / <kbd>Cmd+Option+U</kbd>) to see the code.
+    </li>
+    <li>Copy all the code and paste it into <code>index.html</code> in your Replit project</li>
   </ol>
+
 
   <h2>🧠 Your Task</h2>
   <section>
@@ -282,22 +286,20 @@
 
   <script>
     function toggleMode() {
-      document.body.classList.toggle("light-mode");
+      document.body.classList.toggle(\"light-mode\");
     }
 
-    const canvas = document.getElementById("matrix");
-    const ctx = canvas.getContext("2d");
+    const canvas = document.getElementById(\"matrix\");
+    const ctx = canvas.getContext(\"2d\");
     canvas.width = window.innerWidth;
     canvas.height = window.innerHeight;
-
     const cols = Math.floor(canvas.width / 20);
     const drops = Array(cols).fill(1);
-
     function drawMatrix() {
-      ctx.fillStyle = "rgba(0, 0, 0, 0.05)";
+      ctx.fillStyle = \"rgba(0, 0, 0, 0.05)\";
       ctx.fillRect(0, 0, canvas.width, canvas.height);
-      ctx.fillStyle = "#8ef5da";
-      ctx.font = "18px monospace";
+      ctx.fillStyle = \"#8ef5da\";
+      ctx.font = \"18px monospace\";
       for (let i = 0; i < drops.length; i++) {
         const text = String.fromCharCode(0x30a0 + Math.random() * 96);
         ctx.fillText(text, i * 20, drops[i] * 20);
@@ -307,26 +309,24 @@
         drops[i]++;
       }
     }
-
     setInterval(drawMatrix, 50);
-
-    window.addEventListener("resize", () => {
+    window.addEventListener(\"resize\", () => {
       canvas.width = window.innerWidth;
       canvas.height = window.innerHeight;
     });
 
-    document.addEventListener("mousemove", (e) => {
-      const trail = document.createElement("div");
-      trail.className = "trail";
+    document.addEventListener(\"mousemove\", (e) => {
+      const trail = document.createElement(\"div\");
+      trail.className = \"trail\";
       trail.style.top = `${e.clientY}px`;
       trail.style.left = `${e.clientX}px`;
       document.body.appendChild(trail);
       setTimeout(() => trail.remove(), 600);
     });
 
-    const checklistItems = document.querySelectorAll("section input[type='checkbox']");
+    const checklistItems = document.querySelectorAll(\"section input[type='checkbox']\");
     checklistItems.forEach((box) => {
-      box.addEventListener("change", () => {
+      box.addEventListener(\"change\", () => {
         const allChecked = [...checklistItems].every((box) => box.checked);
         if (allChecked) {
           confetti({ particleCount: 150, spread: 90, origin: { y: 0.6 } });
