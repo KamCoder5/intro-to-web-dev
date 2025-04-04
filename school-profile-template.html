@@ -1,0 +1,285 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>My School Profile</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      html,
+      body {
+        height: 100%;
+        font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+        scroll-behavior: smooth;
+      }
+
+      section {
+        height: 100vh;
+        padding: 40px 20px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        background: linear-gradient(135deg, #fef9ff, #e7f0ff);
+        border-bottom: 1px solid #ddd;
+      }
+
+      .container {
+        max-width: 800px;
+        width: 100%;
+        background: #ffffff;
+        padding: 30px;
+        border-radius: 15px;
+        box-shadow: 0 12px 30px rgba(0, 0, 0, 0.1);
+        transition: transform 0.3s ease;
+      }
+
+      .container:hover {
+        transform: translateY(-5px);
+      }
+
+      h1,
+      h2 {
+        color: #4a4e69;
+      }
+
+      h1 {
+        font-size: 38px;
+        text-align: center;
+        margin-bottom: 20px;
+        color: #22223b;
+      }
+
+      h2 {
+        font-size: 24px;
+        margin-top: 20px;
+        margin-bottom: 10px;
+        border-bottom: 2px dashed #9a8c98;
+        padding-bottom: 5px;
+      }
+
+      p,
+      li {
+        font-size: 18px;
+        color: #4a4e69;
+      }
+
+      ul {
+        padding-left: 20px;
+      }
+
+      .profile-img {
+        max-width: 140px;
+        border-radius: 50%;
+        display: block;
+        margin: 0 auto 20px;
+        box-shadow: 0 0 12px rgba(0, 0, 0, 0.25);
+        border: 4px solid #c9ada7;
+      }
+
+      .highlight-box {
+        background-color: #ffffff;
+        padding: 15px;
+        border-radius: 12px;
+        font-size: 16px;
+        border-left: 5px solid #c77dff;
+      }
+
+      .highlight-box p,
+      .highlight-box li {
+        color: #3c096c;
+      }
+
+      #game button {
+        font-size: 18px;
+        padding: 10px 20px;
+        margin: 5px;
+        border: none;
+        border-radius: 10px;
+        background-color: #c77dff;
+        color: white;
+        cursor: pointer;
+        transition: background-color 0.3s ease;
+      }
+
+      #game button:hover {
+        background-color: #9d4edd;
+      }
+
+      #game-reset {
+        background-color: #fcbf49;
+        color: #222;
+      }
+
+      #game-reset:hover {
+        background-color: #f77f00;
+      }
+    </style>
+  </head>
+  <body>
+    <section>
+      <div class="container highlight-box">
+        <img class="profile-img" src="me.png" alt="My Photo" />
+        <h1>Hello, I'm [Your Name] 😊</h1>
+        <p>
+          Welcome to my school profile! This is my little online space where you
+          can learn more about me, what I enjoy, and what I’ve been working on
+          in school. 🌟
+        </p>
+      </div>
+    </section>
+
+    <section>
+      <div class="container highlight-box">
+        <h2>About Me</h2>
+        <p>
+          I’m a GCSE student who loves exploring new ideas and creating fun
+          things—whether it’s solving a tricky problem or designing something
+          new. I’m curious, creative, and always up for a challenge!
+        </p>
+      </div>
+    </section>
+
+    <section>
+      <div class="container highlight-box">
+        <h2>Subjects I Study 📚</h2>
+        <ul>
+          <li>Maths</li>
+          <li>English Language & Literature</li>
+          <li>Computer Science</li>
+          <li>Biology, Chemistry, Physics</li>
+          <li>Geography / History / Art / French</li>
+        </ul>
+      </div>
+    </section>
+
+    <section>
+      <div class="container highlight-box">
+        <h2>My Predicted Grades 📝</h2>
+        <ul>
+          <li>Maths: 7</li>
+          <li>English: 6</li>
+          <li>Computer Science: 8</li>
+          <li>Science: 7</li>
+          <li>Other Subjects: 6–8</li>
+        </ul>
+      </div>
+    </section>
+
+    <section>
+      <div class="container highlight-box">
+        <h2>Projects & Achievements 🏆</h2>
+        <ul>
+          <li>Designed a poster for the school open day</li>
+          <li>Built a simple website using HTML & CSS</li>
+          <li>Completed a science fair project on climate change</li>
+        </ul>
+      </div>
+    </section>
+
+    <section>
+      <div class="container highlight-box">
+        <h2>Hobbies & Interests 🎨</h2>
+        <ul>
+          <li>Playing football and netball</li>
+          <li>Creative writing and journalling</li>
+          <li>Photography and digital art</li>
+          <li>Learning to code cool things</li>
+        </ul>
+      </div>
+    </section>
+
+    <section>
+      <div class="container highlight-box">
+        <h2>Contact 📬</h2>
+        <p>Email: yourname@email.com</p>
+        <p>GitHub (optional): github.com/yourusername</p>
+      </div>
+    </section>
+
+    <section>
+      <div class="container highlight-box">
+        <h2>🎮 Rock, Paper, Scissors Game</h2>
+        <p>Click below to play against the computer!</p>
+        <div id="game" style="text-align: center; margin-top: 20px">
+          <button onclick="playGame('rock')">🪨 Rock</button>
+          <button onclick="playGame('paper')">📄 Paper</button>
+          <button onclick="playGame('scissors')">✂️ Scissors</button>
+
+          <div style="margin-top: 30px">
+            <h3>YOU vs COMPUTER</h3>
+            <p style="font-size: 40px">
+              <span id="player-choice">❔</span> vs
+              <span id="computer-choice">❔</span>
+            </p>
+          </div>
+
+          <p
+            id="result"
+            style="font-weight: bold; font-size: 22px; margin-top: 20px"
+          ></p>
+
+          <button
+            id="game-reset"
+            onclick="resetGame()"
+            style="
+              margin-top: 20px;
+              padding: 10px 20px;
+              border: none;
+              border-radius: 10px;
+              cursor: pointer;
+            "
+          >
+            🔁 Play Again
+          </button>
+        </div>
+      </div>
+    </section>
+
+    <script>
+      const emojiMap = {
+        rock: "🪨",
+        paper: "📄",
+        scissors: "✂️",
+      };
+
+      function playGame(playerChoice) {
+        const choices = ["rock", "paper", "scissors"];
+        const computerChoice =
+          choices[Math.floor(Math.random() * choices.length)];
+
+        document.getElementById("player-choice").textContent =
+          emojiMap[playerChoice];
+        document.getElementById("computer-choice").textContent =
+          emojiMap[computerChoice];
+
+        let result = "";
+
+        if (playerChoice === computerChoice) {
+          result = "It's a draw! 🤝";
+        } else if (
+          (playerChoice === "rock" && computerChoice === "scissors") ||
+          (playerChoice === "paper" && computerChoice === "rock") ||
+          (playerChoice === "scissors" && computerChoice === "paper")
+        ) {
+          result = "You win! 🎉";
+        } else {
+          result = "You lose! 😢";
+        }
+
+        document.getElementById("result").textContent = result;
+      }
+
+      function resetGame() {
+        document.getElementById("player-choice").textContent = "❔";
+        document.getElementById("computer-choice").textContent = "❔";
+        document.getElementById("result").textContent = "";
+      }
+    </script>
+  </body>
+</html>
