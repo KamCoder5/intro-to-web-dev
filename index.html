@@ -132,10 +132,7 @@
       cursor: pointer;
       border-radius: 6px;
       box-shadow: 0 0 10px rgba(142, 245, 218, 0.67);
-      position: fixed;
-      top: 20px;
-      right: 20px;
-      z-index: 9999;
+      margin-bottom: 20px;
       transition: all 0.3s;
     }
 
@@ -240,8 +237,6 @@
       button.toggle-mode {
         padding: 8px 12px;
         font-size: 0.8rem;
-        top: 10px;
-        right: 10px;
       }
     }
 
@@ -287,15 +282,17 @@
 </head>
 <body>
   <canvas class="matrix-background" id="matrix"></canvas>
-  <button class="toggle-mode" onclick="toggleMode()">Dark Mode / Light Mode</button>
-  <div class="progress-container">
-    <div class="progress-text">Progress: <span id="progress-count">0</span>/8</div>
-  </div>
+  
+  <button class="toggle-mode" onclick="toggleMode()">Light Mode</button>
 
   <h1>💻 Build & Customize Your Own Webpage</h1>
 
   <div class="highlight">
     <strong>Goal:</strong> Create and publish a personal school profile using HTML & CSS!
+  </div>
+
+  <div class="progress-container">
+    <div class="progress-text">Progress: <span id="progress-count">0</span>/6</div>
   </div>
 
   <h2>🎯 Learning Objectives</h2>
@@ -369,13 +366,11 @@ h1 {
   <ol>
     <li>Go to <a href="https://codepen.io/pen" target="_blank" rel="noopener noreferrer">codepen.io/pen</a></li>
     <li>You'll see three panels: HTML, CSS, and JS</li>
-    <li>Open this template: <a href="#" id="template-link">school-profile-template.html</a></li>
-    <li>Right-click anywhere and choose <strong>"View Page Source"</strong></li>
-    <li>Select all code, copy it (Ctrl+A, Ctrl+C)</li>
-    <li>Paste it into the HTML panel in CodePen</li>
-    <li>Click the ⚙️ settings on HTML and ensure 'None' is selected</li>
-    <li>Customize your page and click "Save"</li>
-    <li>Click "Share" and send the live preview link to your teacher ✨</li>
+    <li>Create a new HTML file or use the template provided</li>
+    <li>Start coding your webpage in the HTML panel</li>
+    <li>Add styles in the CSS panel</li>
+    <li>Click "Save" to save your work</li>
+    <li>Click "Share" to get a link to your creation</li>
   </ol>
 
   <div class="tip-box">
@@ -398,9 +393,7 @@ h1 {
       <li><label><input type="checkbox" /> Add your favorite hobbies (use &lt;ul&gt; or &lt;ol&gt; for lists)</label></li>
       <li><label><input type="checkbox" /> Change the background color using CSS (body { background-color: #color; })</label></li>
       <li><label><input type="checkbox" /> Customize the text color and font (h1 { color: #color; font-family: name; })</label></li>
-      <li><label><input type="checkbox" /> Add semantic elements like &lt;header&gt;, &lt;main&gt;, and &lt;footer&gt;</label></li>
-      <li><label><input type="checkbox" /> Make sure your page is responsive (add @media queries)</label></li>
-      <li><label><input type="checkbox" /> Save and share your webpage</label></li>
+     
     </ul>
   </section>
 
@@ -426,8 +419,42 @@ h1 {
       └── background.png</code>
   </div>
 
+  <h2>📱 Responsive Design</h2>
+  <p>Make your webpage look good on all devices with these CSS techniques:</p>
+  
+  <code>/* Mobile-first approach */
+.container {
+  width: 100%;
+  padding: 10px;
+}
 
-  <h2>🛠 Troubleshooting Tips In Github Pages</h2>
+/* Tablet view */
+@media (min-width: 768px) {
+  .container {
+    width: 80%;
+    margin: 0 auto;
+  }
+}
+
+/* Desktop view */
+@media (min-width: 1024px) {
+  .container {
+    width: 60%;
+  }
+}</code>
+
+  <h2>♿ Accessibility Tips</h2>
+  <ul>
+    <li>Always add <code>alt</code> text to images</li>
+    <li>Use semantic HTML e.g.<code>&lt;header&gt;</code>, <code>&lt;nav&gt;</code>, <code>&lt;main&gt;</code></li>
+    <li>Ensure good color contrast</li>
+    <li>Make interactive elements keyboard-navigable</li>
+    <li>Use ARIA attributes when needed</li>
+    <li>Provide text alternatives for non-text content</li>
+    <li>Make sure all functionality is available via keyboard</li>
+  </ul>
+
+  <h2>🛠 Troubleshooting Tips</h2>
   <ul>
     <li>🟡 404 Error? Make sure <code>index.html</code> is directly in the root folder</li>
     <li>✅ Check GitHub Pages is set to <code>main</code> branch + <code>/ (root)</code></li>
@@ -436,16 +463,6 @@ h1 {
     <li>🐞 Use browser developer tools (F12) to debug</li>
   </ul>
 
-  <div class="teacher-resources">
-    <h2>👩‍🏫 Teacher Resources</h2>
-    <h3>Assessment Rubric</h3>
-    <ul>
-      <li><strong>Content (30%)</strong>: Complete personal information, well-written content</li>
-      <li><strong>Design (30%)</strong>: Attractive layout, consistent styling, responsive</li>
-      <li><strong>Code Quality (20%)</strong>: Proper HTML structure, clean CSS, comments</li>
-      <li><strong>Functionality (10%)</strong>: All links work, images display properly</li>
-      <li><strong>Accessibility (10%)</strong>: Alt text, semantic HTML, good contrast</li>
-    </ul>
     <h3>Extension Activities</h3>
     <ul>
       <li>Add a simple JavaScript feature (like a counter)</li>
@@ -453,7 +470,6 @@ h1 {
       <li>Implement a dark/light mode toggle</li>
       <li>Add a contact form (requires backend)</li>
     </ul>
-  </div>
 
   <h2>🌟 Celebrating Your Success</h2>
   <p>🎉 Share your website with classmates and family! Here are some ideas to continue learning:</p>
@@ -468,20 +484,29 @@ h1 {
     // Sound for the cheering crowd
     const cheerSound = new Audio('https://www.zapsplat.com/wp-content/uploads/2015/sound-effects/cheering-crowd-1.mp3');
     
-    // Template link handler
-    document.getElementById('template-link').addEventListener('click', function(e) {
-      e.preventDefault();
-      alert("For this exercise, please create your own HTML file from scratch or ask your teacher for the template file.");
-    });
-
     function toggleMode() {
-      document.body.classList.toggle("light-mode");
-      localStorage.setItem('darkMode', document.body.classList.contains('light-mode') ? 'false' : 'true');
+      const body = document.body;
+      const toggleBtn = document.querySelector('.toggle-mode');
+      
+      body.classList.toggle("light-mode");
+      
+      // Update button text based on current mode
+      if (body.classList.contains('light-mode')) {
+        toggleBtn.textContent = 'Dark Mode';
+      } else {
+        toggleBtn.textContent = 'Light Mode';
+      }
+      
+      localStorage.setItem('darkMode', body.classList.contains('light-mode') ? 'false' : 'true');
     }
 
     // Check for saved theme preference
+    const toggleBtn = document.querySelector('.toggle-mode');
     if (localStorage.getItem('darkMode') === 'false') {
       document.body.classList.add('light-mode');
+      toggleBtn.textContent = 'Dark Mode';
+    } else {
+      toggleBtn.textContent = 'Light Mode';
     }
 
     const canvas = document.getElementById("matrix");
