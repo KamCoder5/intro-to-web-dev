@@ -4,6 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Webpage Design Lesson</title>
+  <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
   <style>
     @import url("https://fonts.googleapis.com/css2?family=Fira+Code&family=Orbitron:wght@500&display=swap");
 
@@ -111,7 +112,6 @@
       z-index: 9999;
     }
 
-    /* Matrix Background & Trail */
     .matrix-background {
       position: fixed;
       top: 0;
@@ -147,7 +147,6 @@
       }
     }
 
-    /* Light Mode */
     body.light-mode {
       background: #f2edf7;
       color: #222;
@@ -221,14 +220,14 @@
     }
   </code>
 
-  <h2>🚀 Set Up Replit</h2>
+  <h2>🚀 Set Up Replit (for Building)</h2>
   <ol>
     <li>Go to <a href="https://replit.com" target="_blank">replit.com</a> and sign in</li>
-    <li>Click <strong>“+ Create App”</strong></li>
-    <li>Choose <strong style="color: red">HTML, CSS, JS (Auto Refresh)</strong> template</li>
+    <li>Click <strong>“+ Create Repl”</strong></li>
+    <li>Choose <strong style="color: red">HTML, CSS, JS (Auto Refresh)</strong></li>
     <li>Name your project (e.g. <code>MyWebpage</code>)</li>
     <li>Close the AI Assistant tab</li>
-    <li>Paste the full code from your teacher into <code>index.html</code></li>
+    <li>Paste your code into <code>index.html</code></li>
   </ol>
 
   <h2>🧠 Your Task</h2>
@@ -247,55 +246,51 @@
     </ul>
   </section>
 
-  <h2>🧠 How to Think Like a Software Engineer</h2>
-  <div class="tip-box">
-    <p>You don’t need to be a genius to code. You just need to be curious, patient, and ready to figure things out.</p>
-    <ul>
-      <li>🔍 <strong>Don’t just stare at code — read it out loud.</strong><br />Ask yourself: What do I think this line is doing?</li>
-      <li>🧠 <strong>Focus on what you’re trying to do — not just how to write it.</strong><br />Start with the goal: “I want this button to turn blue.” Then search or test things that move you in that direction.</li>
-      <li>🧩 <strong>Break it down into smaller steps.</strong><br />Don’t try to do 10 things at once. Just do one. Then another. Then another.</li>
-      <li>💡 <strong>If something breaks — good! Now you get to figure it out.</strong><br />Bug-hunting is a superpower. Read the error message, and don’t be afraid to Google it word-for-word.</li>
-      <li>🌱 <strong>You’re not supposed to “just know” — you’re supposed to learn how to find out.</strong><br />All great coders started by being confused. Then they kept going.</li>
-    </ul>
-    <p>Software engineers aren’t expected to know everything — we’re expected to be <strong>resourceful, logical, and unafraid to learn</strong>.</p>
-  </div>
+  <h2>🌟 Celebrating Your Success</h2>
+  <p>🎉 When you tick every box in the checklist above, confetti will rain down!</p>
 
-  <h2>💬 Advice From Real Software Engineers</h2>
-  <div class="tip-box">
-    <p>Here’s the kind of advice real software engineers wish someone told them when they were starting out:</p>
-    <ul>
-      <li>🧠 <strong>You don’t need to know everything — just how to figure things out.</strong><br />The best engineers Google things daily.</li>
-      <li>🔍 <strong>Read the error message. Then actually read it again.</strong></li>
-      <li>🔁 <strong>Start small. Build. Check. Then keep going.</strong></li>
-      <li>🤔 <strong>Code is communication.</strong></li>
-      <li>🎨 <strong>Copy-pasting is fine — if you understand it.</strong></li>
-      <li>💥 <strong>Everyone breaks things — even senior engineers.</strong></li>
-      <li>🧪 <strong>Experiment. Play. Break stuff on purpose.</strong></li>
-      <li>🦆 <strong>Say the problem out loud.</strong></li>
-      <li>🧘 <strong>Take breaks. Breathe. Step away when you need to.</strong></li>
-      <li>🌱 <strong>Feeling confused means you’re learning.</strong></li>
-    </ul>
-  </div>
+  <h2>📦 How to Download Your Replit Project</h2>
+  <ol>
+    <li>Click the <strong>3 vertical dots</strong> next to your project name</li>
+    <li>Choose <strong>“Download as zip”</strong></li>
+    <li>Unzip the folder on your computer</li>
+  </ol>
+
+  <h2>🌍 How to Publish Using GitHub Pages</h2>
+  <ol>
+    <li>Go to <a href="https://github.com" target="_blank">github.com</a> and sign in</li>
+    <li>Create a new public repository (e.g. <code>my-webpage</code>)</li>
+    <li>Click <strong>Add file → Upload files</strong></li>
+    <li>Upload your <code>index.html</code> (and any images)</li>
+    <li>Click <strong>Commit changes</strong></li>
+    <li>Go to <strong>Settings → Pages</strong></li>
+    <li>Under <strong>Source</strong>, select <code>main</code> and <code>/ (root)</code>, then click <strong>Save</strong></li>
+    <li>After 30–60 seconds, a link to your live site will appear</li>
+  </ol>
+
+  <h2>🛠 Troubleshooting Tips</h2>
+  <ul>
+    <li>🟡 404 Error? Make sure <code>index.html</code> is directly in the root folder</li>
+    <li>✅ Check GitHub Pages is set to <code>main</code> branch + <code>/ (root)</code></li>
+    <li>🔁 Add a new file like <code>trigger.txt</code> to refresh the page build</li>
+  </ul>
 
   <script>
     function toggleMode() {
-      document.body.classList.toggle("light-mode");
+      document.body.classList.toggle(\"light-mode\");
     }
 
-    // Matrix background
-    const canvas = document.getElementById("matrix");
-    const ctx = canvas.getContext("2d");
+    const canvas = document.getElementById(\"matrix\");
+    const ctx = canvas.getContext(\"2d\");
     canvas.width = window.innerWidth;
     canvas.height = window.innerHeight;
-
     const cols = Math.floor(canvas.width / 20);
     const drops = Array(cols).fill(1);
-
     function drawMatrix() {
-      ctx.fillStyle = "rgba(0, 0, 0, 0.05)";
+      ctx.fillStyle = \"rgba(0, 0, 0, 0.05)\";
       ctx.fillRect(0, 0, canvas.width, canvas.height);
-      ctx.fillStyle = "#8ef5da";
-      ctx.font = "18px monospace";
+      ctx.fillStyle = \"#8ef5da\";
+      ctx.font = \"18px monospace\";
       for (let i = 0; i < drops.length; i++) {
         const text = String.fromCharCode(0x30a0 + Math.random() * 96);
         ctx.fillText(text, i * 20, drops[i] * 20);
@@ -305,22 +300,29 @@
         drops[i]++;
       }
     }
-
     setInterval(drawMatrix, 50);
-
-    window.addEventListener("resize", () => {
+    window.addEventListener(\"resize\", () => {
       canvas.width = window.innerWidth;
       canvas.height = window.innerHeight;
     });
 
-    // Cursor Trail
-    document.addEventListener("mousemove", (e) => {
-      const trail = document.createElement("div");
-      trail.className = "trail";
+    document.addEventListener(\"mousemove\", (e) => {
+      const trail = document.createElement(\"div\");
+      trail.className = \"trail\";
       trail.style.top = `${e.clientY}px`;
       trail.style.left = `${e.clientX}px`;
       document.body.appendChild(trail);
       setTimeout(() => trail.remove(), 600);
+    });
+
+    const checklistItems = document.querySelectorAll(\"section input[type='checkbox']\");
+    checklistItems.forEach((box) => {
+      box.addEventListener(\"change\", () => {
+        const allChecked = [...checklistItems].every((box) => box.checked);
+        if (allChecked) {
+          confetti({ particleCount: 150, spread: 90, origin: { y: 0.6 } });
+        }
+      });
     });
   </script>
 </body>
