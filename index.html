@@ -1,0 +1,327 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Webpage Design Lesson</title>
+  <style>
+    @import url("https://fonts.googleapis.com/css2?family=Fira+Code&family=Orbitron:wght@500&display=swap");
+
+    body {
+      font-family: "Fira Code", monospace;
+      background-color: #1a132f;
+      color: #f1f1f1;
+      padding: 40px;
+      max-width: 900px;
+      margin: auto;
+      line-height: 1.7;
+      font-size: 16px;
+      transition: background 0.3s, color 0.3s;
+      position: relative;
+      overflow-x: hidden;
+    }
+
+    section,
+    .highlight,
+    .tip-box,
+    code,
+    ul,
+    ol,
+    p,
+    h2,
+    h3 {
+      background: rgba(26, 19, 47, 0.85);
+      backdrop-filter: blur(8px);
+      padding: 16px;
+      border-radius: 10px;
+      margin-bottom: 20px;
+    }
+
+    h1 {
+      font-size: 38px;
+      color: #8ef5da;
+      text-shadow: 0 0 8px #8ef5daaa;
+      background: rgba(26, 19, 47, 0.85);
+      padding: 20px;
+      border-radius: 12px;
+      backdrop-filter: blur(10px);
+    }
+
+    h2 {
+      color: #c6b3f9;
+      border-bottom: 2px dashed #594d6d;
+      padding-bottom: 5px;
+      margin-top: 40px;
+    }
+
+    h3 {
+      color: #e2c6ff;
+      margin-top: 30px;
+    }
+
+    a {
+      color: #ffd6d0;
+      transition: color 0.3s;
+    }
+
+    code {
+      background: #2a1e45;
+      color: #fff;
+      border-left: 4px solid #ffb3a7;
+      display: block;
+      font-family: "Fira Code", monospace;
+      font-size: 15px;
+      white-space: pre-wrap;
+      margin: 10px 0;
+    }
+
+    ul,
+    ol {
+      padding-left: 30px;
+    }
+
+    .highlight {
+      border-left: 5px solid #ffb3a7;
+      box-shadow: 0 0 10px #ffb3a755;
+    }
+
+    .tip-box {
+      border-left: 5px solid #9fe3cc;
+      box-shadow: 0 0 10px #9fe3cc44;
+    }
+
+    .tip-box ul li {
+      margin-bottom: 16px;
+    }
+
+    button.toggle-mode {
+      background: #8ef5da;
+      color: #222;
+      border: none;
+      padding: 10px 16px;
+      font-family: "Orbitron", sans-serif;
+      font-weight: bold;
+      text-transform: uppercase;
+      cursor: pointer;
+      border-radius: 6px;
+      box-shadow: 0 0 10px #8ef5daaa;
+      position: fixed;
+      top: 20px;
+      right: 20px;
+      z-index: 9999;
+    }
+
+    /* Matrix Background & Trail */
+    .matrix-background {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      z-index: -2;
+      pointer-events: none;
+      opacity: 0.15;
+    }
+
+    canvas#matrix {
+      width: 100%;
+      height: 100%;
+      display: block;
+    }
+
+    .trail {
+      position: fixed;
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      background: #8ef5da;
+      pointer-events: none;
+      animation: trail-fade 0.6s forwards;
+      z-index: 999;
+    }
+
+    @keyframes trail-fade {
+      to {
+        opacity: 0;
+        transform: scale(1.5);
+      }
+    }
+
+    /* Light Mode */
+    body.light-mode {
+      background: #f2edf7;
+      color: #222;
+    }
+
+    body.light-mode section,
+    body.light-mode .highlight,
+    body.light-mode .tip-box,
+    body.light-mode code,
+    body.light-mode ul,
+    body.light-mode ol,
+    body.light-mode p,
+    body.light-mode h2,
+    body.light-mode h3 {
+      background: #fff8ffcc;
+      color: #222;
+      border-left-color: #b18bd6;
+      backdrop-filter: blur(6px);
+    }
+
+    body.light-mode h1 {
+      background: #fdf4ff;
+      color: #9b59b6;
+      text-shadow: none;
+    }
+
+    body.light-mode a {
+      color: #6a1b9a;
+      font-weight: 500;
+      text-decoration: underline;
+    }
+
+    body.light-mode button.toggle-mode {
+      background: #b18bd6;
+      color: white;
+      box-shadow: 0 0 10px #b18bd6aa;
+    }
+  </style>
+</head>
+<body>
+  <canvas class="matrix-background" id="matrix"></canvas>
+  <button class="toggle-mode" onclick="toggleMode()">Toggle Mode</button>
+
+  <h1>💻 Build & Customise Your Own Webpage</h1>
+
+  <div class="highlight">
+    <strong>Goal:</strong> Create and publish a personal school profile using HTML & CSS!
+  </div>
+
+  <h2>🎯 Learning Objectives</h2>
+  <ul>
+    <li>Understand the basics of HTML & CSS</li>
+    <li>Use Replit to build and edit a webpage</li>
+    <li>Customise the look of a webpage using styles</li>
+    <li>Publish and share your website with others</li>
+  </ul>
+
+  <h2>🧱 What is HTML?</h2>
+  <p>HTML is the code that gives a webpage structure.</p>
+  <code>
+    &lt;h1&gt;This is a heading&lt;/h1&gt;<br />
+    &lt;p&gt;This is a paragraph.&lt;/p&gt;
+  </code>
+
+  <h2>🎨 What is CSS?</h2>
+  <p>CSS is the styling language that makes your page look good.</p>
+  <code>
+    h1 {<br />
+    &nbsp;&nbsp;color: purple;<br />
+    &nbsp;&nbsp;font-family: Arial;<br />
+    }
+  </code>
+
+  <h2>🚀 Set Up Replit</h2>
+  <ol>
+    <li>Go to <a href="https://replit.com" target="_blank">replit.com</a> and sign in</li>
+    <li>Click <strong>“+ Create App”</strong></li>
+    <li>Choose <strong style="color: red">HTML, CSS, JS (Auto Refresh)</strong> template</li>
+    <li>Name your project (e.g. <code>MyWebpage</code>)</li>
+    <li>Close the AI Assistant tab</li>
+    <li>Paste the full code from your teacher into <code>index.html</code></li>
+  </ol>
+
+  <h2>🧠 Your Task</h2>
+  <section>
+    <p>Tick each one off as you go!</p>
+    <ul style="list-style: none; padding-left: 0;">
+      <li><label><input type="checkbox" /> Update your name on the webpage</label></li>
+      <li><label><input type="checkbox" /> Add your own photo</label></li>
+      <li><label><input type="checkbox" /> Write a short paragraph about yourself</label></li>
+      <li><label><input type="checkbox" /> Add your favourite hobbies</label></li>
+      <li><label><input type="checkbox" /> Change the background colour using CSS</label></li>
+      <li><label><input type="checkbox" /> Customise the text colour and font</label></li>
+      <li><label><input type="checkbox" /> Add at least one <code>&lt;strong&gt;</code> or <code>&lt;em&gt;</code> tag</label></li>
+      <li><label><input type="checkbox" /> Publish your webpage</label></li>
+      <li><label><input type="checkbox" /> Share your live link with the class!</label></li>
+    </ul>
+  </section>
+
+  <h2>🧠 How to Think Like a Software Engineer</h2>
+  <div class="tip-box">
+    <p>You don’t need to be a genius to code. You just need to be curious, patient, and ready to figure things out.</p>
+    <ul>
+      <li>🔍 <strong>Don’t just stare at code — read it out loud.</strong><br />Ask yourself: What do I think this line is doing?</li>
+      <li>🧠 <strong>Focus on what you’re trying to do — not just how to write it.</strong><br />Start with the goal: “I want this button to turn blue.” Then search or test things that move you in that direction.</li>
+      <li>🧩 <strong>Break it down into smaller steps.</strong><br />Don’t try to do 10 things at once. Just do one. Then another. Then another.</li>
+      <li>💡 <strong>If something breaks — good! Now you get to figure it out.</strong><br />Bug-hunting is a superpower. Read the error message, and don’t be afraid to Google it word-for-word.</li>
+      <li>🌱 <strong>You’re not supposed to “just know” — you’re supposed to learn how to find out.</strong><br />All great coders started by being confused. Then they kept going.</li>
+    </ul>
+    <p>Software engineers aren’t expected to know everything — we’re expected to be <strong>resourceful, logical, and unafraid to learn</strong>.</p>
+  </div>
+
+  <h2>💬 Advice From Real Software Engineers</h2>
+  <div class="tip-box">
+    <p>Here’s the kind of advice real software engineers wish someone told them when they were starting out:</p>
+    <ul>
+      <li>🧠 <strong>You don’t need to know everything — just how to figure things out.</strong><br />The best engineers Google things daily.</li>
+      <li>🔍 <strong>Read the error message. Then actually read it again.</strong></li>
+      <li>🔁 <strong>Start small. Build. Check. Then keep going.</strong></li>
+      <li>🤔 <strong>Code is communication.</strong></li>
+      <li>🎨 <strong>Copy-pasting is fine — if you understand it.</strong></li>
+      <li>💥 <strong>Everyone breaks things — even senior engineers.</strong></li>
+      <li>🧪 <strong>Experiment. Play. Break stuff on purpose.</strong></li>
+      <li>🦆 <strong>Say the problem out loud.</strong></li>
+      <li>🧘 <strong>Take breaks. Breathe. Step away when you need to.</strong></li>
+      <li>🌱 <strong>Feeling confused means you’re learning.</strong></li>
+    </ul>
+  </div>
+
+  <script>
+    function toggleMode() {
+      document.body.classList.toggle("light-mode");
+    }
+
+    // Matrix background
+    const canvas = document.getElementById("matrix");
+    const ctx = canvas.getContext("2d");
+    canvas.width = window.innerWidth;
+    canvas.height = window.innerHeight;
+
+    const cols = Math.floor(canvas.width / 20);
+    const drops = Array(cols).fill(1);
+
+    function drawMatrix() {
+      ctx.fillStyle = "rgba(0, 0, 0, 0.05)";
+      ctx.fillRect(0, 0, canvas.width, canvas.height);
+      ctx.fillStyle = "#8ef5da";
+      ctx.font = "18px monospace";
+      for (let i = 0; i < drops.length; i++) {
+        const text = String.fromCharCode(0x30a0 + Math.random() * 96);
+        ctx.fillText(text, i * 20, drops[i] * 20);
+        if (drops[i] * 20 > canvas.height || Math.random() > 0.975) {
+          drops[i] = 0;
+        }
+        drops[i]++;
+      }
+    }
+
+    setInterval(drawMatrix, 50);
+
+    window.addEventListener("resize", () => {
+      canvas.width = window.innerWidth;
+      canvas.height = window.innerHeight;
+    });
+
+    // Cursor Trail
+    document.addEventListener("mousemove", (e) => {
+      const trail = document.createElement("div");
+      trail.className = "trail";
+      trail.style.top = `${e.clientY}px`;
+      trail.style.left = `${e.clientX}px`;
+      document.body.appendChild(trail);
+      setTimeout(() => trail.remove(), 600);
+    });
+  </script>
+</body>
+</html>
